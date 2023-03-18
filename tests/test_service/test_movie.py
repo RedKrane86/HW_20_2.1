@@ -1,13 +1,12 @@
 import pytest
 
-from tests.test_dao.test_movie import movie_dao
 from service.movie import MovieService
 
 
 class TestMovieService:
     @pytest.fixture(autouse=True)
-    def movie_service(self, m_dao=movie_dao):
-        self.movie_service = MovieService(dao= m_dao)
+    def movie_service(self, movie_dao):
+        self.movie_service = MovieService(dao=movie_dao)
 
     def test_get_one(self):
         movie = self.movie_service.get_one(1)

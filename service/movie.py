@@ -36,4 +36,5 @@ class MovieService:
         self.dao.update(movie)
 
     def delete(self, rid):
+
         self.dao.delete(rid)

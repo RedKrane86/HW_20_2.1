@@ -1,13 +1,12 @@
 import pytest
 
-from tests.test_dao.test_director import director_dao
 from service.director import DirectorService
 
 
 class TestDirectorService:
     @pytest.fixture(autouse=True)
-    def director_service(self, d_dao=director_dao):
-        self.director_service = DirectorService(dao= d_dao)
+    def director_service(self, director_dao):
+        self.director_service = DirectorService(dao=director_dao)
 
     def test_get_one(self):
         director = self.director_service.get_one(1)
